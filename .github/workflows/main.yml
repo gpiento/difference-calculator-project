@@ -11,9 +11,6 @@ on:
   push:
   pull_request:
 
-permissions:
-  contents: read
-
 jobs:
   build:
 
@@ -30,8 +27,8 @@ jobs:
       uses: gradle/gradle-build-action@v2.8.0
       with:
         gradle-version: 8.2
-    - run: cd app && ./gradlew checkstyleMain checkstyleTest
-    - run: cd app && ./gradlew test
+        arguments: build
+        build-root-directory: app
     - name: Publish code coverage
       uses: paambaati/codeclimate-action@v3.2.0
       env:
