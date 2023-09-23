@@ -1,19 +1,50 @@
 plugins {
     id 'java'
+    id 'application'
+    id 'checkstyle'
+    id 'jacoco'
+    // taskTree
+    id 'com.dorongold.task-tree' version '2.1.1'
+    // useLatestVersions
+    id 'se.patrikerdes.use-latest-versions' version '0.2.18'
+    id 'com.github.ben-manes.versions' version '0.48.0'
 }
 
 group = 'hexlet.code'
 version = '1.0-SNAPSHOT'
+
+application {
+    // Define the main class for the application.
+    mainClass = 'hexlet.code.App'
+}
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
+    // This dependency is used by the application.
+    implementation 'com.google.guava:guava:32.1.2-jre'
+    // https://picocli.info/
+    implementation 'info.picocli:picocli:4.7.5'
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
+    // https://mvnrepository.com/artifact/com.puppycrawl.tools/checkstyle
+    implementation 'com.puppycrawl.tools:checkstyle:10.9.0'
 }
 
 test {
     useJUnitPlatform()
+}
+
+compileJava {
+    options.release.set(20)
+}
+
+tasks.jacocoTestReport {
+    reports {
+        xml.required.set(true)
+    }
 }
