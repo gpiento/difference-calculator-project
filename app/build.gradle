@@ -24,7 +24,7 @@ repositories {
 
 dependencies {
     testImplementation platform('org.junit:junit-bom:5.10.0')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.9.2'
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:32.1.2-jre'
     // https://picocli.info/
@@ -32,7 +32,7 @@ dependencies {
     // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
     // https://mvnrepository.com/artifact/com.puppycrawl.tools/checkstyle
-    implementation 'com.puppycrawl.tools:checkstyle'
+    implementation 'com.puppycrawl.tools:checkstyle:10.9.1'
 }
 
 test {
