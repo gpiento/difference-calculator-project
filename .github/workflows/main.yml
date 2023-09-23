@@ -27,10 +27,8 @@ jobs:
         uses: gradle/gradle-build-action@v2
         with:
           gradle-version: 8.2
+          arguments: build
           build-root-directory: ${{github.workspace}}/app
-      - name: Run build with Gradle Wrapper
-        run: ./gradlew build
-        working-directory: ${{github.workspace}}/app
       - name: Test & publish code coverage
         uses: paambaati/codeclimate-action@v3
         env:
