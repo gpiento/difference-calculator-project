@@ -32,7 +32,7 @@ dependencies {
     // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
     // https://mvnrepository.com/artifact/com.puppycrawl.tools/checkstyle
-    implementation 'com.puppycrawl.tools:checkstyle:10.9.0'
+    implementation 'com.puppycrawl.tools:checkstyle'
 }
 
 test {
@@ -43,8 +43,13 @@ compileJava {
     options.release.set(20)
 }
 
-tasks.jacocoTestReport {
+test {
+    finalizedBy jacocoTestReport // report is always generated after tests run
+}
+
+jacocoTestReport {
+    dependsOn test // tests are required to run before generating the report
     reports {
-        xml.required.set(true)
+        xml.required = true
     }
 }
