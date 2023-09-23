@@ -28,4 +28,4 @@ lint:
 check-deps:
 	./gradlew dependencyUpdates -Drevision=release
 
-build-run: build run-dist
+build-run: build install run-dist
