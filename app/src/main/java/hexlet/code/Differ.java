@@ -12,7 +12,9 @@ import java.util.TreeMap;
 
 public class Differ {
 
-    public static String generate(final String filePath1, final String filePath2) throws JsonProcessingException {
+    public static String generate(final String filePath1,
+                                  final String filePath2,
+                                  final String fileFormat) throws JsonProcessingException {
 
         ObjectMapper objectMapper = new ObjectMapper();
         Map<String, Object> mapReadValue1 = objectMapper.readValue(readJson(filePath1), Map.class);
@@ -43,6 +45,10 @@ public class Differ {
         diff.append("}\n");
 
         return diff.toString();
+    }
+
+    public static String generate(final String filePath1, final String filePath2) throws JsonProcessingException {
+        return generate("stilish", filePath1, filePath2);
     }
 
     public static String readJson(final String fileName) {
