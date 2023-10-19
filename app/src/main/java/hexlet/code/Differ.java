@@ -48,7 +48,7 @@ public class Differ {
     }
 
     public static String generate(final String filePath1, final String filePath2) throws JsonProcessingException {
-        return generate("stilish", filePath1, filePath2);
+        return generate("stylish", filePath1, filePath2);
     }
 
     public static String readJson(final String fileName) {
