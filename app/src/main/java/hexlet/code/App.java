@@ -37,8 +37,6 @@ public class App implements Callable<Integer> {
     public Integer call() throws Exception {
 
         String diff = Differ.generate(filePath1, filePath2, fileFormat);
-        System.out.println(diff);
-        System.out.println("\n\nformat: " + fileFormat);
         return 0;
     }
 }

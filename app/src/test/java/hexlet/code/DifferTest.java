@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class DifferTest {
 
     @Test
-    void generateTest() throws IOException {
+    void generateTest() throws Exception {
         String fileFormat = "fileFormat";
         String filePath1 = "src/test/resources/file1.json";
         String filePath2 = "src/test/resources/file2.json";

@@ -1,6 +1,5 @@
 package hexlet.code;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
@@ -14,7 +13,7 @@ public class Differ {
 
     public static String generate(final String filePath1,
                                   final String filePath2,
-                                  final String fileFormat) throws JsonProcessingException {
+                                  final String fileFormat) throws Exception {
 
         ObjectMapper objectMapper = new ObjectMapper();
         Map<String, Object> mapReadValue1 = objectMapper.readValue(readJson(filePath1), Map.class);
@@ -47,8 +46,9 @@ public class Differ {
         return diff.toString();
     }
 
-    public static String generate(final String filePath1, final String filePath2) throws JsonProcessingException {
-        return generate("stylish", filePath1, filePath2);
+    public static String generate(final String filePath1,
+                                  final String filePath2) throws Exception {
+        return generate(filePath1, filePath2, "stylish");
     }
 
     public static String readJson(final String fileName) {
