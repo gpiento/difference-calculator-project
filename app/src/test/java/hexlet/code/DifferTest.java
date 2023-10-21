@@ -8,7 +8,7 @@ public class DifferTest {
 
     @Test
     void generateTest() throws Exception {
-        String fileFormat = "fileFormat";
+        String fileFormat = "stylish";
         String filePath1 = "src/test/resources/file1.json";
         String filePath2 = "src/test/resources/file2.json";
         String expectedResult = """

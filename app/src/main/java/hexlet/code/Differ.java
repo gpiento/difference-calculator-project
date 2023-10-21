@@ -16,8 +16,8 @@ public class Differ {
                                   final String fileFormat) throws Exception {
 
         ObjectMapper objectMapper = new ObjectMapper();
-        Map<String, Object> mapReadValue1 = objectMapper.readValue(readJson(filePath1), Map.class);
-        Map<String, Object> mapReadValue2 = objectMapper.readValue(readJson(filePath2), Map.class);
+        Map<String, Object> mapReadValue1 = objectMapper.readValue(readFile(filePath1), Map.class);
+        Map<String, Object> mapReadValue2 = objectMapper.readValue(readFile(filePath2), Map.class);
 
 
         StringBuilder diff = new StringBuilder("{\n");
@@ -51,7 +51,7 @@ public class Differ {
         return generate(filePath1, filePath2, "stylish");
     }
 
-    public static String readJson(final String fileName) {
+    public static String readFile(final String fileName) {
 
         Path filePath = Paths.get(fileName).toAbsolutePath().normalize();
         String dataJson;
