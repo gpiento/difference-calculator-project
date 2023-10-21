@@ -11,9 +11,7 @@ import java.util.TreeMap;
 
 public class Differ {
 
-    public static String generate(final String filePath1,
-                                  final String filePath2,
-                                  final String fileFormat) throws Exception {
+    public static String generate(final String filePath1, final String filePath2, final String fileFormat) throws Exception {
 
         ObjectMapper objectMapper = new ObjectMapper();
         Map<String, Object> mapReadValue1 = objectMapper.readValue(readFile(filePath1), Map.class);
@@ -46,8 +44,7 @@ public class Differ {
         return diff.toString();
     }
 
-    public static String generate(final String filePath1,
-                                  final String filePath2) throws Exception {
+    public static String generate(final String filePath1, final String filePath2) throws Exception {
         return generate(filePath1, filePath2, "stylish");
     }
 

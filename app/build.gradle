@@ -28,7 +28,7 @@ dependencies {
     // https://picocli.info/
     implementation 'info.picocli:picocli:4.7.5'
     // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
-    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.3'
     // https://mvnrepository.com/artifact/com.puppycrawl.tools/checkstyle
     implementation 'com.puppycrawl.tools:checkstyle:10.12.4'
 }
