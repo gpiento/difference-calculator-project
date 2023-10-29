@@ -26,7 +26,7 @@ jobs:
       - name: Build with Gradle
         uses: gradle/gradle-build-action@v2
         with:
-          gradle-version: 8.2
+          gradle-version: 8.3
           arguments: build
           build-root-directory: ${{github.workspace}}/app
       - name: Test & publish code coverage
