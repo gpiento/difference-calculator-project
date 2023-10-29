@@ -34,8 +34,8 @@ public class Differ {
         }
     }
 
-    public static String generate(final String filePath1, final String filePath2) {
-        generate(filePath1, filePath2, "stylish");
+    public static String generate(final String filePath1, final String filePath2) throws Exception {
+        return generate(filePath1, filePath2, "stylish");
     }
 
     public static String readFile(final String fileName) {
