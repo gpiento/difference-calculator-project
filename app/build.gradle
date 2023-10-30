@@ -1,5 +1,4 @@
 plugins {
-    id 'java'
     id 'application'
     id 'checkstyle'
     id 'jacoco'
@@ -38,7 +37,7 @@ test {
 }
 
 compileJava {
-    options.release.set(21)
+    options.release.set(17)
 }
 
 test {
