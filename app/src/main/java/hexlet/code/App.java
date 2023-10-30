@@ -3,6 +3,7 @@ package hexlet.code;
 import picocli.CommandLine;
 import picocli.CommandLine.Parameters;
 
+import java.util.Arrays;
 import java.util.concurrent.Callable;
 
 import static picocli.CommandLine.Command;
@@ -29,6 +30,7 @@ public class App implements Callable<Integer> {
     boolean versionInfoRequested;
 
     public static void main(String[] args) {
+
         int exitCode = new CommandLine(new App()).execute(args);
         System.exit(exitCode);
     }
