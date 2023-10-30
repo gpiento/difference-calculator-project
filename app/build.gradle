@@ -30,7 +30,7 @@ dependencies {
     // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.16.0-rc1'
     // https://mvnrepository.com/artifact/com.puppycrawl.tools/checkstyle
-    implementation 'com.puppycrawl.tools:checkstyle:10.12.4'
+    implementation 'com.puppycrawl.tools:checkstyle:9.3'
 }
 
 test {
