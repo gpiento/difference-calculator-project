@@ -39,6 +39,7 @@ public class App implements Callable<Integer> {
 
         String diff = Differ.generate(filePath1, filePath2, fileFormat);
         System.out.println(diff);
+
         return 0;
     }
 }

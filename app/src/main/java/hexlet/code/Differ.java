@@ -15,23 +15,27 @@ public class Differ {
                                   final String fileFormat) throws Exception {
 
         ObjectMapper objectMapper = new ObjectMapper();
-        Map<String, Object> mapReadValue1 = objectMapper.readValue(readFile(filePath1), Map.class);
-        Map<String, Object> mapReadValue2 = objectMapper.readValue(readFile(filePath2), Map.class);
+        Map<String, Object> fileMap1 = objectMapper.readValue(readFile(filePath1), Map.class);
+        Map<String, Object> fileMap2 = objectMapper.readValue(readFile(filePath2), Map.class);
 
         switch (fileFormat) {
             case "plain" -> {
-                return Plain.render(mapReadValue1, mapReadValue2);
+                return Plain.render(fileMap1, fileMap2);
             }
             case "stylish" -> {
-                return Stylish.render(mapReadValue1, mapReadValue2);
+                return Stylish.render(fileMap1, fileMap2);
             }
             case "json" -> {
-                return Json.render(mapReadValue1, mapReadValue2);
+                return Json.render(fileMap1, fileMap2);
             }
             default -> {
                 return "Unknown format.";
             }
         }
+    }
+
+    public static String generate(final String filePath1, final String filePath2) throws Exception {
+        return generate(filePath1, filePath2, "stylish");
     }
 
     public static String readFile(final String fileName) {
