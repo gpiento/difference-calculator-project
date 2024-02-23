@@ -1,8 +1,7 @@
 package hexlet.code;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.commons.io.FilenameUtils;
 
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -12,43 +11,48 @@ public class Differ {
 
     public static String generate(final String filePath1,
                                   final String filePath2,
-                                  final String fileFormat) throws Exception {
+                                  final String formatOutput) throws Exception {
 
-        ObjectMapper objectMapper = new ObjectMapper();
-        Map<String, Object> fileMap1 = objectMapper.readValue(readFile(filePath1), Map.class);
-        Map<String, Object> fileMap2 = objectMapper.readValue(readFile(filePath2), Map.class);
+        String data1 = getTextFromFile(filePath1);
+        String data2 = getTextFromFile(filePath2);
+        String extFile1 = FilenameUtils.getExtension(filePath1);
+        String extFile2 = FilenameUtils.getExtension(filePath2);
 
-        switch (fileFormat) {
-            case "plain" -> {
-                return Plain.render(fileMap1, fileMap2);
-            }
-            case "stylish" -> {
-                return Stylish.render(fileMap1, fileMap2);
-            }
+        Map<String, Object> mapReadValue1 = parse(data1, extFile1);
+        Map<String, Object> mapReadValue2 = parse(data2, extFile2);
+
+        return mapReadValue1.toString() + "\n" + mapReadValue2.toString();
+    }
+
+    public static String getTextFromFile(final String fileName) throws Exception {
+
+        Path filePath = getNormalizePath(fileName);
+
+        if (!filePath.toFile().exists()) {
+            throw new RuntimeException("File '" + fileName + "' not found.");
+        }
+
+        return Files.readString(filePath);
+    }
+
+    public static Path getNormalizePath(final String fileName) {
+
+        return Paths.get(fileName).toAbsolutePath().normalize();
+    }
+
+    public static Map<String, Object> parse(String data, String formatType) throws Exception {
+
+        switch (formatType) {
             case "json" -> {
-                return Json.render(fileMap1, fileMap2);
+                return Json.parser(data);
+            }
+            case "yaml" -> {
+                return Yaml.parser(data);
             }
             default -> {
-                return "Unknown format.";
+                throw new Exception("Unknown format: '" + formatType + "'.");
             }
+
         }
-    }
-
-    public static String generate(final String filePath1, final String filePath2) throws Exception {
-        return generate(filePath1, filePath2, "stylish");
-    }
-
-    public static String readFile(final String fileName) {
-
-        Path filePath = Paths.get(fileName).toAbsolutePath().normalize();
-        String dataJson;
-
-        try {
-            dataJson = Files.readString(filePath);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-        return dataJson;
     }
 }
