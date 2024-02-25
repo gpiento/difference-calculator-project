@@ -29,35 +29,33 @@ public class Differ {
         return generate(filePath1, filePath2, "stylish");
     }
 
-}
+    public static String getTextFromFile(final String fileName) throws Exception {
 
-public static String getTextFromFile(final String fileName) throws Exception {
+        Path filePath = getNormalizePath(fileName);
 
-    Path filePath = getNormalizePath(fileName);
+        if (!filePath.toFile().exists()) {
+            throw new RuntimeException("File '" + fileName + "' not found.");
+        }
 
-    if (!filePath.toFile().exists()) {
-        throw new RuntimeException("File '" + fileName + "' not found.");
+        return Files.readString(filePath);
     }
 
-    return Files.readString(filePath);
-}
+    public static Path getNormalizePath(final String fileName) {
 
-public static Path getNormalizePath(final String fileName) {
-
-    return Paths.get(fileName).toAbsolutePath().normalize();
-}
-
-public static Map<String, Object> parse(String data, String formatType) throws Exception {
-
-    switch (formatType) {
-        case "json" -> {
-            return Json.parser(data);
-        }
-        case "yaml" -> {
-            return Yaml.parser(data);
-        }
-        default -> throw new Exception("Unknown format: '" + formatType + "'.");
-
+        return Paths.get(fileName).toAbsolutePath().normalize();
     }
-}
+
+    public static Map<String, Object> parse(String data, String formatType) throws Exception {
+
+        switch (formatType) {
+            case "json" -> {
+                return Json.parser(data);
+            }
+            case "yaml" -> {
+                return Yaml.parser(data);
+            }
+            default -> throw new Exception("Unknown format: '" + formatType + "'.");
+
+        }
+    }
 }
