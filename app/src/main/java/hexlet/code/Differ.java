@@ -24,6 +24,7 @@ public class Differ {
         return mapReadValue1.toString() + "\n" + mapReadValue2.toString();
     }
 
+    // TODO: implement the method and complete the method
     public static String getTextFromFile(final String fileName) throws Exception {
 
         Path filePath = getNormalizePath(fileName);
