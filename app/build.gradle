@@ -18,7 +18,7 @@ repositories {
 
 dependencies {
     // https://mvnrepository.com/artifact/org.junit/junit-bom
-    testImplementation 'org.junit:junit-bom:5.10.2'
+    testImplementation platform('org.junit:junit-bom:5.10.2')
     // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
     // https://mvnrepository.com/artifact/info.picocli/picocli
@@ -40,7 +40,7 @@ test {
 }
 
 compileJava {
-    options.release.set(20)
+    options.release.set(21)
 }
 
 jacocoTestReport {
