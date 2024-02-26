@@ -49,13 +49,12 @@ public class Differ {
 
         switch (formatType) {
             case "json" -> {
-                return Json.parser(data);
+                return Parser.textToJson(data);
             }
             case "yaml" -> {
-                return Yaml.parser(data);
+                return Parser.textToYaml(data);
             }
             default -> throw new Exception("Unknown format: '" + formatType + "'.");
-
         }
     }
 }
