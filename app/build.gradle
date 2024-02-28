@@ -40,7 +40,7 @@ dependencies {
     // https://mvnrepository.com/artifact/commons-io/commons-io
     implementation 'commons-io:commons-io:2.15.1'
     // https://mvnrepository.com/artifact/com.adarshr/gradle-test-logger-plugin
-    runtimeOnly 'com.adarshr:gradle-test-logger-plugin:4.0.0'
+    //runtimeOnly 'com.adarshr:gradle-test-logger-plugin:4.0.0'
 }
 
 tasks.named('test', Test) {
