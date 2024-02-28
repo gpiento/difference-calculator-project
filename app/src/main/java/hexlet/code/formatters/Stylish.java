@@ -32,21 +32,4 @@ public class Stylish {
 
         return builder.append("}\n").toString();
     }
-
-    private static String stringify(Object value) {
-
-        if (value == null) {
-            return "null";
-        }
-
-        if (value instanceof String) {
-            return "'" + value + "'";
-        }
-
-        if (value instanceof Map || value instanceof List) {
-            return "[complex value]";
-        }
-
-        return value.toString();
-    }
 }
