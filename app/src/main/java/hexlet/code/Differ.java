@@ -30,11 +30,6 @@ public class Differ {
         return selectFormat(comparedList, formatOutput);
     }
 
-    public static String generate(final String filePath1, final String filePath2) throws Exception {
-
-        return generate(filePath1, filePath2, "stylish");
-    }
-
     public static String getTextFromFile(final String fileName) throws Exception {
 
         Path filePath = getNormalizePath(fileName);
