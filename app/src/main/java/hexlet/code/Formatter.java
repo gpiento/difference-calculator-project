@@ -1,5 +1,6 @@
 package hexlet.code;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import hexlet.code.formatters.Json;
 import hexlet.code.formatters.Plain;
 import hexlet.code.formatters.Stylish;
@@ -14,7 +15,7 @@ import java.util.TreeSet;
 
 public class Formatter {
 
-    public static String selectFormat(List<Map<String, Object>> data, String formatType) {
+    public static String selectFormat(List<Map<String, Object>> data, String formatType) throws JsonProcessingException {
 
         switch (formatType) {
             case "plain" -> {
