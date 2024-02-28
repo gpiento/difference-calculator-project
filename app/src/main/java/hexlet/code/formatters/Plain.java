@@ -11,25 +11,17 @@ public class Plain {
 
         for (Map<String, Object> map : data) {
             switch (map.get("type").toString()) {
-                case "add" -> {
-                    builder.append(String
-                            .format("Property '%s' was added with value: %s\n", map.get("key"),
-                                    stringify(map.get("value1"))));
-                }
-                case "remove" -> {
-                    builder.append(String
-                            .format("Property '%s' was removed\n",
-                                    stringify(map.get("key"))));
-                }
-                case "change" -> {
-                    builder.append(String
-                            .format("Property '%s' was updated. From %s to %s\n", map.get("key"),
-                                    stringify(map.get("value1")),
-                                    stringify(map.get("value2"))));
-                }
-                default -> {
-                    builder.append("");
-                }
+                case "add" -> builder.append(String
+                        .format("Property '%s' was added with value: %s\n", map.get("key"),
+                                stringify(map.get("value1"))));
+                case "remove" -> builder.append(String
+                        .format("Property '%s' was removed\n",
+                                stringify(map.get("key"))));
+                case "change" -> builder.append(String
+                        .format("Property '%s' was updated. From %s to %s\n", map.get("key"),
+                                stringify(map.get("value1")),
+                                stringify(map.get("value2"))));
+                default -> builder.append("");
             }
         }
         return builder.toString();
