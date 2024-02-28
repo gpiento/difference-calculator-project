@@ -1,6 +1,5 @@
 package hexlet.code;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.nio.file.Files;
@@ -10,18 +9,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class DifferTest {
 
-    Path pathPlainExpected = Path.of("src/test/resources/expected/plainTest.txt");
-    Path pathStylishExpected = Path.of("src/test/resources/expected/stylishTest.txt");
+    Path pathPlainExpected = Path.of("src/test/resources/expected/plainTest.txt")
+            .toAbsolutePath().normalize();
+    Path pathStylishExpected = Path.of("src/test/resources/expected/stylishTest.txt")
+            .toAbsolutePath().normalize();
     Path pathJsonExpected = Path.of("src/test/resources/expected/jsonTest.txt");
     String pathJson1 = "src/test/resources/file1.json";
     String pathJson2 = "src/test/resources/file2.json";
     String pathYaml1 = "src/test/resources/file1.yaml";
     String pathYaml2 = "src/test/resources/file2.yaml";
-
-    @BeforeAll
-    public static void beforeAll() {
-
-    }
 
     @Test
     void generatePlainTest() throws Exception {
