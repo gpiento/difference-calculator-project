@@ -18,7 +18,7 @@ public class Parser {
             case "yaml", "yml" -> {
                 return Parser.textToYaml(data);
             }
-            default -> throw new Exception("Unknown format: '" + formatFile + "'.");
+            default -> throw new Exception("Unknown file format: '" + formatFile + "'.");
         }
     }
 
