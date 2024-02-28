@@ -1,7 +1,10 @@
 package hexlet.code;
 
+import hexlet.code.formatters.Json;
+import hexlet.code.formatters.Plain;
+import hexlet.code.formatters.Stylish;
+
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,6 +13,24 @@ import java.util.Set;
 import java.util.TreeSet;
 
 public class Formatter {
+
+    public static String selectFormat(List<Map<String, Object>> data, String formatType) {
+
+        switch (formatType) {
+            case "plain" -> {
+                return Plain.formatPlain(data);
+            }
+            case "stylish" -> {
+                return Stylish.formatStylish(data);
+            }
+            case "json" -> {
+                return Json.formatJson(data);
+            }
+            default -> {
+                return "Unknown format.";
+            }
+        }
+    }
 
     public static List<Map<String, Object>> compareMap(Map<String, Object> map1, Map<String, Object> map2) {
 

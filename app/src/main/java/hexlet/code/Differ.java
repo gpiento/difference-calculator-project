@@ -1,8 +1,5 @@
 package hexlet.code;
 
-import hexlet.code.formatters.Json;
-import hexlet.code.formatters.Plain;
-import hexlet.code.formatters.Stylish;
 import org.apache.commons.io.FilenameUtils;
 
 import java.nio.file.Files;
@@ -12,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 import static hexlet.code.Formatter.compareMap;
+import static hexlet.code.Formatter.selectFormat;
 import static hexlet.code.Parser.parse;
 
 public class Differ {
@@ -29,7 +27,7 @@ public class Differ {
         Map<String, Object> mapReadValue2 = parse(data2, extFile2);
         List<Map<String, Object>> comparedList = compareMap(mapReadValue1, mapReadValue2);
 
-        return parseFormat(comparedList, formatOutput);
+        return selectFormat(comparedList, formatOutput);
     }
 
     public static String generate(final String filePath1, final String filePath2) throws Exception {
@@ -51,23 +49,5 @@ public class Differ {
     public static Path getNormalizePath(final String fileName) {
 
         return Paths.get(fileName).toAbsolutePath().normalize();
-    }
-
-    public static String parseFormat(List<Map<String, Object>> data, String formatType) {
-
-        switch (formatType) {
-            case "plain" -> {
-                return Plain.formatPlain(data);
-            }
-            case "stylish" -> {
-                return Stylish.formatStylish(data);
-            }
-            case "json" -> {
-                return Json.formatJson(data);
-            }
-            default -> {
-                return "Unknown format.";
-            }
-        }
     }
 }

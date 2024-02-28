@@ -7,29 +7,31 @@ public class Plain {
 
     public static String formatPlain(List<Map<String, Object>> data) {
 
-        StringBuilder builder = new StringBuilder("{\n");
+        StringBuilder builder = new StringBuilder();
 
         for (Map<String, Object> map : data) {
             switch (map.get("type").toString()) {
-                case "unchange" -> {
-                    builder.append(String.format("  %s: %s\n", map.get("key"), stringify(map.get("value1"))));
-                }
                 case "add" -> {
-                    builder.append(String.format("  + %s: %s\n", map.get("key"), stringify(map.get("value1"))));
+                    builder.append(String
+                            .format("Property '%s' was added with value: %s\n", map.get("key"),
+                                    stringify(map.get("value1"))));
                 }
                 case "remove" -> {
-                    builder.append(String.format("  - %s: %s\n", map.get("key"), stringify(map.get("value1"))));
+                    builder.append(String
+                            .format("Property '%s' was removed\n",
+                                    stringify(map.get("key"))));
                 }
                 case "change" -> {
-                    builder.append(String.format("  - %s: %s\n", map.get("key"), stringify(map.get("value1"))));
-                    builder.append(String.format("  + %s: %s\n", map.get("key"), stringify(map.get("value2"))));
+                    builder.append(String
+                            .format("Property '%s' was updated. From %s to %s\n", map.get("key"),
+                                    stringify(map.get("value1")),
+                                    stringify(map.get("value2"))));
                 }
                 default -> {
-                    throw new RuntimeException("Unknown type: " + map.get("type"));
+                    builder.append("");
                 }
             }
         }
-
         return builder.toString();
     }
 

@@ -11,22 +11,14 @@ public class Stylish {
 
         for (Map<String, Object> map : data) {
             switch (map.get("type").toString()) {
-                case "unchange" -> {
-                    builder.append(String.format("    %s: %s\n", map.get("key"), map.get("value1")));
-                }
-                case "add" -> {
-                    builder.append(String.format("  + %s: %s\n", map.get("key"), map.get("value1")));
-                }
-                case "remove" -> {
-                    builder.append(String.format("  - %s: %s\n", map.get("key"), map.get("value1")));
-                }
+                case "unchange" -> builder.append(String.format("    %s: %s\n", map.get("key"), map.get("value1")));
+                case "add" -> builder.append(String.format("  + %s: %s\n", map.get("key"), map.get("value1")));
+                case "remove" -> builder.append(String.format("  - %s: %s\n", map.get("key"), map.get("value1")));
                 case "change" -> {
                     builder.append(String.format("  - %s: %s\n", map.get("key"), map.get("value1")));
                     builder.append(String.format("  + %s: %s\n", map.get("key"), map.get("value2")));
                 }
-                default -> {
-                    throw new RuntimeException("Unknown type: " + map.get("type"));
-                }
+                default -> throw new RuntimeException("Unknown type: " + map.get("type"));
             }
         }
 
