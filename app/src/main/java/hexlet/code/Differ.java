@@ -40,7 +40,7 @@ public class Differ {
         Path filePath = getNormalizePath(fileName);
 
         if (!filePath.toFile().exists()) {
-            throw new RuntimeException("File '" + fileName + "' not found.");
+            throw new RuntimeException("File '" + filePath.toString() + "' not found.");
         }
 
         return Files.readString(filePath);
