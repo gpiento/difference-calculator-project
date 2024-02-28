@@ -1,0 +1,5 @@
+Property 'address' was updated. From 'Ret Drive' to 'Red Dr'
+Property ''city'' was removed
+Property 'name' was updated. From 'John Doe' to 'Jane Smith'
+Property 'state' was added with value: 'NY'
+Property ''street'' was removed
