@@ -15,7 +15,7 @@ public class Parser {
             case "json" -> {
                 return Parser.textToJson(data);
             }
-            case "yaml" -> {
+            case "yaml", "yml" -> {
                 return Parser.textToYaml(data);
             }
             default -> throw new Exception("Unknown format: '" + formatFile + "'.");
