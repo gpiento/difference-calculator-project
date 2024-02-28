@@ -32,6 +32,12 @@ public class DifferTest {
     }
 
     @Test
+    void generateStylishDefaultTest() throws Exception {
+        String expectedResult = Files.readString(pathStylishExpected);
+        assertEquals(expectedResult, Differ.generate(pathJson1, pathJson2));
+    }
+
+    @Test
     void generateJsonTest() throws Exception {
         String expectedResult = Files.readString(pathJsonExpected);
         assertEquals(expectedResult, Differ.generate(pathJson1, pathJson2, "json"));
