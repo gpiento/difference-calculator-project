@@ -24,6 +24,7 @@ public class Plain {
                 default -> builder.append("");
             }
         }
+        builder.replace(builder.lastIndexOf("\n"), builder.length(), "");
         return builder.toString();
     }
 
