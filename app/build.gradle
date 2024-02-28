@@ -61,7 +61,7 @@ jacocoTestReport {
     }
 }
 
-testlogger {
+/*testlogger {
     theme 'standard'
     showExceptions true
     showStackTraces true
@@ -79,4 +79,4 @@ testlogger {
     showSkippedStandardStreams true
     showFailedStandardStreams true
     logLevel 'lifecycle'
-}
+}*/
