@@ -10,27 +10,20 @@ import java.util.Map;
 
 public class Parser {
 
-    public static Map<String, Object> parser(String data, String formatType) {
+    public static Map<String, Object> parse(String data, String formatFile) throws Exception {
 
-        /*switch (formatType) {
-            case "plain" -> {
-                return Plain.render(fileMap1, fileMap2);
-            }
-            case "stylish" -> {
-                return Stylish.render(fileMap1, fileMap2);
-            }
+        switch (formatFile) {
             case "json" -> {
-                return Json.render(fileMap1, fileMap2);
+                return Parser.textToJson(data);
             }
-            default -> {
-                return "Unknown format.";
+            case "yaml" -> {
+                return Parser.textToYaml(data);
             }
-        }*/
-
-        return new HashMap<>();
+            default -> throw new Exception("Unknown format: '" + formatFile + "'.");
+        }
     }
 
-    public static Map<String, Object> textToJson(String data) throws JsonProcessingException {
+    public static Map<String, Object> textToJson(String data) {
 
         if (data == null) {
             return new HashMap<>();
@@ -38,11 +31,15 @@ public class Parser {
 
         ObjectMapper objectMapper = new ObjectMapper();
 
-        return objectMapper.readValue(data, new TypeReference<>() {
-        });
+        try {
+            return objectMapper.readValue(data, new TypeReference<>() {
+            });
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    public static Map<String, Object> textToYaml(String data) throws JsonProcessingException {
+    public static Map<String, Object> textToYaml(String data) {
 
         if (data == null) {
             return new HashMap<>();
@@ -50,7 +47,11 @@ public class Parser {
 
         ObjectMapper objectMapper = new ObjectMapper(new YAMLFactory());
 
-        return objectMapper.readValue(data, new TypeReference<>() {
-        });
+        try {
+            return objectMapper.readValue(data, new TypeReference<>() {
+            });
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
