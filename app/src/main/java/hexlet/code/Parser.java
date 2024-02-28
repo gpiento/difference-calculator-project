@@ -22,27 +22,19 @@ public class Parser {
         }
     }
 
-    public static Map<String, Object> textToJson(String data) {
+    public static Map<String, Object> textToJson(String data) throws JsonProcessingException {
 
         ObjectMapper objectMapper = new ObjectMapper();
 
-        try {
-            return objectMapper.readValue(data, new TypeReference<>() {
-            });
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
-        }
+        return objectMapper.readValue(data, new TypeReference<>() {
+        });
     }
 
-    public static Map<String, Object> textToYaml(String data) {
+    public static Map<String, Object> textToYaml(String data) throws JsonProcessingException {
 
         ObjectMapper objectMapper = new ObjectMapper(new YAMLFactory());
 
-        try {
-            return objectMapper.readValue(data, new TypeReference<>() {
-            });
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
-        }
+        return objectMapper.readValue(data, new TypeReference<>() {
+        });
     }
 }

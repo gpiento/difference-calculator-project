@@ -2,7 +2,6 @@ package hexlet.code;
 
 import org.apache.commons.io.FilenameUtils;
 
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -36,7 +35,7 @@ public class Differ {
         return generate(filePath1, filePath2, "stylish");
     }
 
-    public static String getTextFromFile(final String fileName)  {
+    public static String getTextFromFile(final String fileName) throws Exception {
 
         Path filePath = getNormalizePath(fileName);
 
@@ -44,11 +43,7 @@ public class Differ {
             throw new RuntimeException("File '" + fileName + "' not found.");
         }
 
-        try {
-            return Files.readString(filePath);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        return Files.readString(filePath);
     }
 
     public static Path getNormalizePath(final String fileName) {

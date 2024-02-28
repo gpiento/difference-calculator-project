@@ -8,14 +8,10 @@ import java.util.Map;
 
 public class Json {
 
-    public static String formatJson(List<Map<String, Object>> data) {
+    public static String formatJson(List<Map<String, Object>> data) throws JsonProcessingException {
 
         ObjectMapper mapper = new ObjectMapper();
 
-        try {
-            return mapper.writeValueAsString(data);
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
-        }
+        return mapper.writeValueAsString(data);
     }
 }
