@@ -13,20 +13,20 @@ import static picocli.CommandLine.Option;
 public class App implements Callable<Integer> {
 
     @Parameters(index = "0", paramLabel = "filepath1", description = "path to first file")
-    String filePath1;
+    private String filePath1;
 
     @Parameters(index = "1", paramLabel = "filepath2", description = "path to second file")
-    String filePath2;
+    private String filePath2;
 
     @Option(names = {"-f", "--format"}, defaultValue = "stylish",
             description = "output format [default: ${DEFAULT-VALUE}]")
-    String formatOutput;
+    private String formatOutput;
 
     @Option(names = {"-h", "--help"}, usageHelp = true, description = "Show this @|fg(cyan) help|@ message and exit.")
-    boolean usageHelpRequested;
+    private boolean usageHelpRequested;
 
     @Option(names = {"-V", "--version"}, versionHelp = true, description = "Print version information and exit.")
-    boolean versionInfoRequested;
+    private boolean versionInfoRequested;
 
     public static void main(String[] args) {
 
