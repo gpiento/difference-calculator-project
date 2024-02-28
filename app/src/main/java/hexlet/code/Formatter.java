@@ -15,7 +15,8 @@ import java.util.TreeSet;
 
 public class Formatter {
 
-    public static String selectFormat(List<Map<String, Object>> data, String formatType) throws JsonProcessingException {
+    public static String selectFormat(List<Map<String, Object>> data, String formatType)
+            throws JsonProcessingException {
 
         switch (formatType) {
             case "plain" -> {
