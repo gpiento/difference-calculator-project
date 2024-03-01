@@ -1,45 +1,82 @@
 package hexlet.code;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class DifferTest {
+    static Path pathPlainExpected;
+    static Path pathStylishExpected;
+    static Path pathJsonExpected;
+    static String pathJson1;
+    static String pathJson2;
+    static String pathYaml1;
+    static String pathYaml2;
 
-    private final Path pathPlainExpected = Path.of("src/test/resources/expected/plainTest.txt")
-            .toAbsolutePath().normalize();
-    private final Path pathStylishExpected = Path.of("src/test/resources/expected/stylishTest.txt")
-            .toAbsolutePath().normalize();
-    private final Path pathJsonExpected = Path.of("src/test/resources/expected/jsonTest.txt");
-    private final String pathJson1 = "src/test/resources/file1.json";
-    private final String pathJson2 = "src/test/resources/file2.json";
+    @BeforeAll
+    public static void setUp() throws IOException {
+        pathPlainExpected = Path.of("src/test/resources/expected/plainTest.txt")
+                .toAbsolutePath().normalize();
+        pathStylishExpected = Path.of("src/test/resources/expected/stylishTest.txt")
+                .toAbsolutePath().normalize();
+        pathJsonExpected = Path.of("src/test/resources/expected/jsonTest.txt")
+                .toAbsolutePath().normalize();
+        pathJson1 = "src/test/resources/fixtures/file1.json";
+        pathJson2 = "src/test/resources/fixtures/file2.json";
+        pathYaml1 = "src/test/resources/fixtures/file1.yaml";
+        pathYaml2 = "src/test/resources/fixtures/file2.yaml";
+    }
 
     @Test
-    void generatePlainTest() throws Exception {
+    void generatePlainFromYaml() throws Exception {
         String expectedResult = Files.readString(pathPlainExpected);
-        String pathYaml1 = "src/test/resources/file1.yaml";
-        String pathYaml2 = "src/test/resources/file2.yaml";
         assertEquals(expectedResult, Differ.generate(pathYaml1, pathYaml2, "plain"));
     }
 
     @Test
-    void generateStylishTest() throws Exception {
+    void generatePlainFromJson() throws Exception {
+        String expectedResult = Files.readString(pathPlainExpected);
+        assertEquals(expectedResult, Differ.generate(pathJson1, pathJson2, "plain"));
+    }
+
+    @Test
+    void generateStylishFromYaml() throws Exception {
+        String expectedResult = Files.readString(pathStylishExpected);
+        assertEquals(expectedResult, Differ.generate(pathYaml1, pathYaml2, "stylish"));
+    }
+
+    @Test
+    void generateStylishFromJson() throws Exception {
         String expectedResult = Files.readString(pathStylishExpected);
         assertEquals(expectedResult, Differ.generate(pathJson1, pathJson2, "stylish"));
     }
 
     @Test
-    void generateStylishDefaultTest() throws Exception {
-        String expectedResult = Files.readString(pathStylishExpected);
-        assertEquals(expectedResult, Differ.generate(pathJson1, pathJson2));
+    void generateJsonFromYaml() throws Exception {
+        String expectedResult = Files.readString(pathJsonExpected);
+        assertEquals(expectedResult, Differ.generate(pathYaml1, pathYaml2, "json"));
     }
 
     @Test
-    void generateJsonTest() throws Exception {
+    void generateJsonFromJson() throws Exception {
         String expectedResult = Files.readString(pathJsonExpected);
         assertEquals(expectedResult, Differ.generate(pathJson1, pathJson2, "json"));
+    }
+
+    @Test
+    void generateStylishFromYamlWithDeffer() throws Exception {
+        String expectedResult = Files.readString(pathStylishExpected);
+        assertEquals(expectedResult, Differ.generate(pathYaml1, pathYaml2));
+    }
+
+    @Test
+    void generateStylishFromJsonWithDeffer() throws Exception {
+        String expectedResult = Files.readString(pathStylishExpected);
+        assertEquals(expectedResult, Differ.generate(pathJson1, pathJson2));
     }
 }

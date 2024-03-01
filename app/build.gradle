@@ -1,8 +1,9 @@
 plugins {
+    id 'java'
     id 'application'
     id 'checkstyle'
     id 'jacoco'
-    //id 'com.adarshr.test-logger' version '4.0.0'
+    id 'com.adarshr.test-logger' version '4.0.0'
 }
 
 group = 'hexlet.code'
@@ -14,17 +15,11 @@ application {
 }
 
 repositories {
-    //gradlePluginPortal()
+    gradlePluginPortal()
     mavenCentral()
 }
 
 dependencies {
-    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
-    //testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.2'
-    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine
-    //testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.10.2'
-    // https://mvnrepository.com/artifact/org.junit/junit-bom
-    //testImplementation platform('org.junit:junit-bom:5.10.2')
     // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
     // https://mvnrepository.com/artifact/org.junit.platform/junit-platform-launcher
@@ -40,7 +35,7 @@ dependencies {
     // https://mvnrepository.com/artifact/commons-io/commons-io
     implementation 'commons-io:commons-io:2.15.1'
     // https://mvnrepository.com/artifact/com.adarshr/gradle-test-logger-plugin
-    //runtimeOnly 'com.adarshr:gradle-test-logger-plugin:4.0.0'
+    runtimeOnly 'com.adarshr:gradle-test-logger-plugin:4.0.0'
 }
 
 tasks.named('test', Test) {
@@ -50,7 +45,6 @@ tasks.named('test', Test) {
 
 compileJava {
     options.release.set(20)
-    options.compilerArgs += ["-Aproject=${project.group}/${project.name}"]
 }
 
 jacocoTestReport {
@@ -61,7 +55,7 @@ jacocoTestReport {
     }
 }
 
-/*testlogger {
+testlogger {
     theme 'standard'
     showExceptions true
     showStackTraces true
@@ -79,4 +73,4 @@ jacocoTestReport {
     showSkippedStandardStreams true
     showFailedStandardStreams true
     logLevel 'lifecycle'
-}*/
+}
