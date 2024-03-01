@@ -10,13 +10,13 @@ import java.nio.file.Path;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class DifferTest {
-    static Path pathPlainExpected;
-    static Path pathStylishExpected;
-    static Path pathJsonExpected;
-    static String pathJson1;
-    static String pathJson2;
-    static String pathYaml1;
-    static String pathYaml2;
+    private static Path pathPlainExpected;
+    private static Path pathStylishExpected;
+    private static Path pathJsonExpected;
+    private static String pathJson1;
+    private static String pathJson2;
+    private static String pathYaml1;
+    private static String pathYaml2;
 
     @BeforeAll
     public static void setUp() throws IOException {
