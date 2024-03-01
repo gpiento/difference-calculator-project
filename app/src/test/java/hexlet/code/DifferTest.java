@@ -3,7 +3,6 @@ package hexlet.code;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
@@ -19,7 +18,7 @@ public class DifferTest {
     private static String pathYaml2;
 
     @BeforeAll
-    public static void setUp() throws IOException {
+    public static void setUp() {
         pathPlainExpected = Path.of("src/test/resources/expected/plainTest.txt")
                 .toAbsolutePath().normalize();
         pathStylishExpected = Path.of("src/test/resources/expected/stylishTest.txt")
