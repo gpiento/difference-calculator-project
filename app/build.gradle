@@ -3,7 +3,6 @@ plugins {
     id 'application'
     id 'checkstyle'
     id 'jacoco'
-    id 'com.adarshr.test-logger' version '4.0.0'
 }
 
 group = 'hexlet.code'
@@ -15,7 +14,6 @@ application {
 }
 
 repositories {
-    gradlePluginPortal()
     mavenCentral()
 }
 
@@ -34,8 +32,6 @@ dependencies {
     implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.16.1'
     // https://mvnrepository.com/artifact/commons-io/commons-io
     implementation 'commons-io:commons-io:2.15.1'
-    // https://mvnrepository.com/artifact/com.adarshr/gradle-test-logger-plugin
-    runtimeOnly 'com.adarshr:gradle-test-logger-plugin:4.0.0'
 }
 
 tasks.named('test', Test) {
@@ -53,24 +49,4 @@ jacocoTestReport {
         xml.required = true
         csv.required = false
     }
-}
-
-testlogger {
-    theme 'standard'
-    showExceptions true
-    showStackTraces true
-    showFullStackTraces false
-    showCauses true
-    slowThreshold 2000
-    showSummary true
-    showSimpleNames false
-    showPassed true
-    showSkipped true
-    showFailed true
-    showOnlySlow false
-    showStandardStreams false
-    showPassedStandardStreams true
-    showSkippedStandardStreams true
-    showFailedStandardStreams true
-    logLevel 'lifecycle'
 }
