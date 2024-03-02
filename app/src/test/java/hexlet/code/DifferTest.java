@@ -68,13 +68,13 @@ public class DifferTest {
     }
 
     @Test
-    void generateStylishFromYamlWithDeffer() throws Exception {
+    void generateStylishFromYamlWithDiffer() throws Exception {
         String expectedResult = Files.readString(pathStylishExpected);
         assertEquals(expectedResult, Differ.generate(pathYaml1, pathYaml2));
     }
 
     @Test
-    void generateStylishFromJsonWithDeffer() throws Exception {
+    void generateStylishFromJsonWithDiffer() throws Exception {
         String expectedResult = Files.readString(pathStylishExpected);
         assertEquals(expectedResult, Differ.generate(pathJson1, pathJson2));
     }
