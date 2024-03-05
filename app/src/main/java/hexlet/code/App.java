@@ -22,12 +22,6 @@ public final class App implements Callable<Integer> {
             description = "output format [default: ${DEFAULT-VALUE}]")
     private String formatOutput;
 
-    @Option(names = {"-h", "--help"}, usageHelp = true, description = "Show this @|fg(cyan) help|@ message and exit.")
-    private boolean usageHelpRequested;
-
-    @Option(names = {"-V", "--version"}, versionHelp = true, description = "Print version information and exit.")
-    private boolean versionInfoRequested;
-
     public static void main(String[] args) {
 
         int exitCode = new CommandLine(new App()).execute(args);
