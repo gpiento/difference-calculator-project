@@ -19,11 +19,11 @@ public class DifferTest {
 
     @BeforeAll
     public static void setUp() {
-        pathPlainExpected = Path.of("src/test/resources/expected/plainTest.txt")
+        pathPlainExpected = Path.of("src/test/resources/fixtures/expected/plainTest.txt")
                 .toAbsolutePath().normalize();
-        pathStylishExpected = Path.of("src/test/resources/expected/stylishTest.txt")
+        pathStylishExpected = Path.of("src/test/resources/fixtures/expected/stylishTest.txt")
                 .toAbsolutePath().normalize();
-        pathJsonExpected = Path.of("src/test/resources/expected/jsonTest.txt")
+        pathJsonExpected = Path.of("src/test/resources/fixtures/expected/jsonTest.txt")
                 .toAbsolutePath().normalize();
         pathJson1 = "src/test/resources/fixtures/file1.json";
         pathJson2 = "src/test/resources/fixtures/file2.json";
