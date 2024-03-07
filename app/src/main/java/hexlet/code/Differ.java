@@ -8,7 +8,6 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.Map;
 
-import static hexlet.code.DiffGenerator.generator;
 import static hexlet.code.Formatter.format;
 import static hexlet.code.Parser.parse;
 
@@ -25,7 +24,7 @@ public class Differ {
 
         Map<String, Object> mapReadValue1 = parse(data1, extFile1);
         Map<String, Object> mapReadValue2 = parse(data2, extFile2);
-        List<Map<String, Object>> comparedList = generator(mapReadValue1, mapReadValue2);
+        List<Map<String, Object>> comparedList = DiffGenerator.generate(mapReadValue1, mapReadValue2);
 
         return format(comparedList, formatOutput);
     }
