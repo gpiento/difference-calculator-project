@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class Plain {
 
-    public static String formatPlain(List<Map<String, Object>> data) {
+    public static String format(List<Map<String, Object>> data) {
 
         StringBuilder builder = new StringBuilder();
 
