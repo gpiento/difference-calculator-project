@@ -10,7 +10,7 @@ import java.util.TreeSet;
 
 public class DiffGenerator {
 
-    public static List<Map<String, Object>> generator(Map<String, Object> map1, Map<String, Object> map2) {
+    public static List<Map<String, Object>> generate(Map<String, Object> map1, Map<String, Object> map2) {
 
         List<Map<String, Object>> listMaps = new ArrayList<>();
         Set<String> setKeys = new TreeSet<>(map1.keySet());
