@@ -1,9 +1,6 @@
 .DEFAULT_GOAL := build-run
 .PHONY: build app
 
-setup:
-	make -C app setup
-
 clean:
 	make -C app clean
 
@@ -13,11 +10,8 @@ build:
 install:
 	make -C app install
 
-run-dist:
-	make -C app run-dist
-
-run:
-	make -C app run
+run-dist: install
+	@./app/build/install/app/bin/app
 
 test:
 	make -C app test
@@ -28,8 +22,4 @@ report:
 lint:
 	make -C app lint
 
-check-deps:
-	make -C app check-deps
-
-build-run:
-	make -C app build-run
+build-run: run-dist
