@@ -2,8 +2,8 @@
 
 [![hexlet-check](https://github.com/gpiento/java-project-71/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/gpiento/java-project-71/actions/workflows/hexlet-check.yml)
 [![GitHub Workflow Status](https://github.com//gpiento/java-project-71/actions/workflows/main.yml/badge.svg)](https://github.com/gpiento/java-project-71/actions)
-[![Maintainability](https://api.codeclimate.com/v1/badges/f58bcd0d0b4944086222/maintainability)](https://codeclimate.com/github/gpiento/java-project-71/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/f58bcd0d0b4944086222/test_coverage)](https://codeclimate.com/github/gpiento/java-project-71/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/4db1a941350c93bc0c0f/maintainability)](https://codeclimate.com/github/gpiento/difference-calculator-project/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/4db1a941350c93bc0c0f/test_coverage)](https://codeclimate.com/github/gpiento/difference-calculator-project/test_coverage)
 
 Difference Calculator is a program that determines the difference between two data structures. A difference calculator is a program that determines the difference between two data structures. This is a popular task for which there are many online services, for example: http://www.jsondiff.com/. Such a mechanism is used when outputting tests or when automatically tracking changes in configuration files.
 
